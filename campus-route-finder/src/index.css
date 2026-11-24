@@ -1,0 +1,58 @@
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-slate-50 font-sans text-slate-800 antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-card;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold
+      transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400
+      focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-navy-800 text-white shadow-sm hover:-translate-y-px hover:bg-navy-700 hover:shadow-md active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply btn border border-slate-200 bg-white text-slate-700 hover:-translate-y-px hover:border-slate-300 hover:bg-slate-50 active:translate-y-0;
+  }
+  .btn-danger {
+    @apply btn bg-rose-600 text-white shadow-sm hover:-translate-y-px hover:bg-rose-500 hover:shadow-md active:translate-y-0;
+  }
+  .field {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800
+      transition focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes draw-path {
+  from {
+    stroke-dashoffset: var(--len, 600);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.edge-flow {
+  stroke-dasharray: 10 8;
+  animation: dash-flow 1s linear infinite;
+}
